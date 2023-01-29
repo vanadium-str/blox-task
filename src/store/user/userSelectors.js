@@ -1,0 +1,1 @@
+export const userTokenSelector = (state) => state.user.token;
