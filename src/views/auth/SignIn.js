@@ -40,6 +40,9 @@ function SignIn() {
         } else {
           setIsNotAuthorized(data.error.message);
         }
+      })
+      .catch(() => {
+        setIsNotAuthorized('Something went wrong');
       });
   };
 
