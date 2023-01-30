@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import { useDispatch } from 'react-redux';
-import { setToken, setUserName } from '../../store/user/userSlice';
+import { setToken } from '../../store/user/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
@@ -34,9 +34,8 @@ function SignIn() {
       .then((data) => {
         console.log(data);
         if (data.success) {
-          dispatch(setUserName(data.data.username));
           dispatch(setToken(data.data.token));
-          navigate('/tokens');
+          navigate('/tokens/all');
         } else {
           setIsNotAuthorized(data.error.message);
         }
